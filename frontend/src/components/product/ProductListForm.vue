@@ -7,8 +7,7 @@
                 <td align="center" width="2%">상품명</td>
                 <td align="center" width="2%">상품가격</td>
                 <td align="center" width="2%">제조사</td>
-                <td align="center" width="2%">주문날짜</td>
-                <td align="center" width="2%">배송정보</td>
+                <td align="center" width="2%">상품 이미지</td>
             </tr>
             <p></p>
             <tr v-if="!products || (Array.isArray(products) && products.length === 0)">
@@ -31,10 +30,7 @@
                     {{ product.company }}
                 </td>
                 <td>
-                    {{ product.orderDate }}
-                </td>
-                <td>
-                    {{ product.details }}
+                    {{ product.Image }}
                 </td>
             </tr>
         </table>
