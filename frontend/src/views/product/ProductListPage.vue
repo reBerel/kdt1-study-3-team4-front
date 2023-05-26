@@ -1,5 +1,11 @@
 <template>
     <div>
+        <div v-if="isBusiness">
+            <router-link to="product-register-page">
+                            <v-btn class="ma-2"
+                                outlined
+                                color="black">상품등록</v-btn></router-link>
+        </div>
         <table>
         <tr>
             <td>상품 번호</td>
@@ -44,15 +50,16 @@
 
 <script>
 import axiosInst from '@/utility/axiosInst';
-
 export default {
+    
     data () {
         return {
             productId: 0,
             productName: '',
             productPrice: 0,
             productDetails: '',
-            productImagesPathList: null
+            productImagesPathList: null,
+            
         }
     },
     methods: {
@@ -64,13 +71,24 @@ export default {
             this.productImagesPathList = payload.productImagesPathList
         }
     },
+    beforeMount() {
+        localStorage.setItem("role", "BUSINESS") //임의로 확인하고 자 넣어둠 추후 삭제요망
+        
+    },
     async mounted () {
         const product = await axiosInst.get('/product/read/3')
 
         console.log('product: ' + JSON.stringify(product.data))
 
         await this.setData (product.data)
+
+    },
+    computed:{
+        isBusiness() {
+        return "BUSINESS"===localStorage.getItem('role')
+        }
     }
+    
 }
   
 </script>
