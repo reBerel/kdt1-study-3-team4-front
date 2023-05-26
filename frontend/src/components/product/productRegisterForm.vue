@@ -78,7 +78,7 @@ export default {
             for(let i =0; i<this.files.length; i++){
                 formData.append('imageFile', this.files[i])
             }
-            formData.append('productInfo',new Blob([JSON.stringify(productInfo)],{types: "application/json"})
+            formData.append('productInfo',new Blob([JSON.stringify(productInfo)],{type: "application/json"})
             )              
             this.$emit('submit', formData)
         },
