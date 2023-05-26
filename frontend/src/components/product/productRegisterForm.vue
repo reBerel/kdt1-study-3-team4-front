@@ -23,7 +23,15 @@
                 <tr>
                     <td class="productForm">상품 상세 정보</td>
                     <td>
-                        <textarea cols="70" rows="18" v-model="productDetails" />
+                        <textarea 
+                        auto-grow
+                        cols="50" rows="20" v-model="productDetails" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="file" id="files" ref="files"
+                                multiple @change="handleFileUpload"/>
                     </td>
                 </tr>
             </table>
@@ -42,19 +50,39 @@ export default {
     name: "ProductRegisterForm",
     data () {
         return {
-            productName:'',
-            vendor:'',
-            productPrice: 0,
-            productDetails:'',
-            userToken: ''
+            productName:'1',
+            vendor:'1',
+            productPrice: 1,
+            productDetails:'1',
+            userToken: '1',
+            files:'',
         }
     },
     methods: {
+        handleFileUpload(){
+            console.log(this.files)
+
+            this.files=this.$refs.files.files
+            console.log(this.files)
+        },
         onSubmit () {
+            let formData = new FormData()
             this.userToken=localStorage.getItem("userToken")
-            const { productName, vendor, productPrice, productDetails, userToken } = this            
-            this.$emit('submit', { productName, vendor, productPrice, productDetails, userToken })
-        }
+            let productInfo={
+                productName: this.productName,
+                vendor:this.vendor,
+                productPrice: this.productPrice,
+                productDetails:this.productDetails,
+                userToken:this.userToken 
+            }
+            for(let i =0; i<this.files.length; i++){
+                formData.append('imageFile', this.files[i])
+            }
+            formData.append('productInfo',new Blob([JSON.stringify(productInfo)],{types: "application/json"})
+            )              
+            this.$emit('submit', formData)
+        },
+        
     }
 }
 </script>
