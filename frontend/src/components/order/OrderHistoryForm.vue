@@ -51,10 +51,10 @@
                     {{ order.product.productPrice }}
                 </td>
                 <td align="center">
-                    {{ order.orderStatus }}
+                    {{ order.orderStatus === "-1" ? "취소" : order.orderStatus }}
                 </td>
                 <td align="center">
-                    {{ order.deliveryStatus }}
+                    {{ getDeliveryStatusText(order.deliveryStatus) }}
                 </td>
                 <td align="center">
                     {{ order.createDate }}
@@ -78,6 +78,21 @@ export default {
             router.push(`/order-read-page/${orderNo}`)
         }
     },
+    methods: {
+    getDeliveryStatusText(deliveryStatus) {
+        if (deliveryStatus === "0") {
+        return "준비중";
+        } else if (deliveryStatus === "1") {
+        return "배송준비";
+        } else if (deliveryStatus === "2") {
+        return "배송중";
+        } else if (deliveryStatus === "3") {
+        return "배송완료";
+        } else {
+        return "";
+        }
+    }
+    }
 }
 </script>
 

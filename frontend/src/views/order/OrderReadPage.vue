@@ -5,7 +5,7 @@
         </div>
         <div class="centered" style="text-align: center;">
             <order-read-form v-if="order" :order="order"/>
-            <p v-else>기다려주세요.</p>
+            <p v-else>주문하신 내용이 없습니다.</p>
         </div>
         <p></p>
         <div style="text-align: center;">

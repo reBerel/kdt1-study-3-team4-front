@@ -17,6 +17,10 @@
                       <td>
                           <input type="text" :value="order.product?.productPrice" readonly/>
                       </td>
+                      <td>주문정보:</td>
+                      <td>
+                        <input type="text" :value="order.orderStatus === '-1' ? '취소' : order.orderStatus" readonly />
+                      </td>
                   </tr>    
                   </tr>
               </thead>
@@ -58,7 +62,7 @@
                       </td>
                       <td>배송정보:</td>
                       <td>
-                          <input type="text" :value="order.deliveryStatus" readonly/>
+                        <input type="text" :value="getDeliveryStatusText(order.deliveryStatus)" readonly/>
                       </td>
                   </tr>
               </tfoot>
@@ -92,7 +96,21 @@
       methods: {
         getImagePath(imagePath) {
         return this.apiUrl + imagePath;
+        },
+        getDeliveryStatusText(deliveryStatus) {
+        if (deliveryStatus === '0') {
+        return '준비중';
+        } else if (deliveryStatus === '1') {
+        return '배송준비';
+        } else if (deliveryStatus === '2') {
+        return '배송중';
+        } else if (deliveryStatus === '3') {
+        return '배송완료';
+        } else {
+        return deliveryStatus;
         }
+        },
+  
     },
     created () {
         //this.getImagePath();
