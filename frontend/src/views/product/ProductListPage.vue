@@ -1,14 +1,17 @@
 <template lang="">
     <div>
-        <h2>상품 게시판</h2>        
+        <div>     
         <p></p>
         <product-list-form :products="products"/>
-        <div  align="center">
-            <p></p>
-            <router-link :to="{ name: 'ProductRegisterPage'}">
-                상품 등록
-            </router-link>
-        </div>
+    </div>
+    <div v-if="isBusiness">
+        <router-link to="product-register-page">
+            <v-btn class="ma-2"
+                outlined
+                color="black">상품등록
+            </v-btn>
+        </router-link>
+    </div>
     </div>
 </template>
 <script>
@@ -21,7 +24,10 @@ const productModule = 'productModule'
 export default {
     components: { ProductListForm },
     computed: {
-        ...mapState(productModule, ['products'])
+        ...mapState(productModule, ['products']),
+        isBusiness() {
+        return "BUSINESS"===localStorage.getItem('role')
+        }
     },
     methods: {
         ...mapActions(
@@ -30,6 +36,9 @@ export default {
     },
     mounted() {
         this.requestProductListToSpring()
+    },
+    beforeMount() {
+        localStorage.setItem("role", "BUSINESS") //임의로 확인하고 자 넣어둠 추후 삭제요망
     }
 }
 </script>
