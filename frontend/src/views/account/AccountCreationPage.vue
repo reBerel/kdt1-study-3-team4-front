@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-        <account-creation-form @submit="onSubmit"/>
+        <account-creation-form/>
     </div>
 </template>
 
