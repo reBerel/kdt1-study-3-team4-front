@@ -1,7 +1,7 @@
 <template>
     <div>
       <table>
-          <table>
+          <table style="margin: auto;">
               <thead>
                   <tr>
                       <td>주문번호:</td>
@@ -19,7 +19,7 @@
                       </td>
                       <td>주문정보:</td>
                       <td>
-                        <input type="text" :value="order.orderStatus === '-1' ? '취소' : order.orderStatus" readonly />
+                        <input type="text" :value="getOrderStatusText(order.orderStatus)" readonly />
                       </td>
                   </tr>    
                   </tr>
@@ -30,7 +30,7 @@
                   <tr>        
                       <td>
                           <div  style="margin-top: 10px;">
-                            <img v-if="order.product" :src="getImagePath(order.product?.image_resource_path[0])" style="width: 100%; height: 100%;"/>
+                            <img v-if="order.product" :src="getImagePath(order.product?.image_resource_path[0])" style="width: 50%; height: 100%;"/>
                             <div v-else style="width: 100%; height: 100%;">12</div>
                         </div>
                       </td>
@@ -38,7 +38,7 @@
               </tbody>
           </table> 
           <!-- 상품 정보 대신 사진넣기 -->
-          <table>   
+          <table style="margin: auto;">   
               <tbody>
                   <tr>
                       <td>
@@ -49,7 +49,7 @@
               </tbody>
           </table> 
           <!-- 상품 정보 대신 사진넣기 -->
-          <table>
+          <table style="margin: auto;">
               <tfoot>
                   <tr>
                       <td>제조사:</td>
@@ -110,6 +110,17 @@
         return deliveryStatus;
         }
         },
+        getOrderStatusText(orderStatus) {
+        if (orderStatus === "-1") {
+            return "취소";
+        } else if (orderStatus === "1") {
+            return "상품준비중";
+        } else if (orderStatus === "2") {
+            return "완료";
+        } else {
+            return "";
+        }
+        }
   
     },
     created () {

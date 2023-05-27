@@ -51,7 +51,7 @@
                     {{ order.product.productPrice }}
                 </td>
                 <td align="center">
-                    {{ order.orderStatus === "-1" ? "취소" : order.orderStatus }}
+                    {{ getOrderStatusText(order.orderStatus) }}
                 </td>
                 <td align="center">
                     {{ getDeliveryStatusText(order.deliveryStatus) }}
@@ -76,10 +76,8 @@ export default {
     methods: {
         handleOrderClick(orderNo) {
             router.push(`/order-read-page/${orderNo}`)
-        }
-    },
-    methods: {
-    getDeliveryStatusText(deliveryStatus) {
+        },
+        getDeliveryStatusText(deliveryStatus) {
         if (deliveryStatus === "0") {
         return "준비중";
         } else if (deliveryStatus === "1") {
@@ -91,8 +89,19 @@ export default {
         } else {
         return "";
         }
-    }
-    }
+    },
+    getOrderStatusText(orderStatus) {
+        if (orderStatus === "-1") {
+            return "취소";
+        } else if (orderStatus === "1") {
+            return "상품준비중";
+        } else if (orderStatus === "2") {
+            return "완료";
+        } else {
+            return "";
+        }
+        }
+    },
 }
 </script>
 
