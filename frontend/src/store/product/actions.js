@@ -11,10 +11,9 @@ export default {
       });
     },
     requestRegisterProductToSpring ({}, payload) {
-        const { productInfo, imageFile} = payload
-        return axiosInst.post('/product/register', { productInfo, imageFile})
+        return axiosInst.post('/product/register', payload)
             .then((res) => {
-                if(res.data.isSuccessRegister){
+                if(res.data){
                 alert('게시물 등록 성공!')
                 return res.data} else{
                     alert('문제 발생')
