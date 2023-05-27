@@ -11,7 +11,7 @@
           ho<v-icon>mdi-home</v-icon>me
           </span>
         </a>
-        <a class="listLink" href="/product-history-page">
+        <a class="listLink" href="/order-history-page/1">
           <abbr title="내 정보">            
           <v-icon>mdi-account-box</v-icon>
         </abbr>  
