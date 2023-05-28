@@ -1,15 +1,16 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-import actions from "@/store/product/actions"
+import mutations from "@/store/product/mutations";
+import actions from "@/store/product/actions";
 
+Vue.use(Vuex);
 
-Vue.use(Vuex)
-
-const ProductModule = {
+const productModule = {
     namespaced: true,
-    actions, 
-   
-}
+    
+    actions,
+    mutations,
+};
 
-export default ProductModule
+export default productModule;
