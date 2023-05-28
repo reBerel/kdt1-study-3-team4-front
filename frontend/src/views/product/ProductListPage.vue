@@ -38,7 +38,7 @@ export default {
         this.requestProductListToSpring()
     },
     beforeMount() {
-        localStorage.setItem("role", "BUSINESS") //임의로 확인하고 자 넣어둠 추후 삭제요망
+        localStorage.setItem("role", "BUSINESS") //임의로 확인하고 자 넣어둠 추후 삭제요망 //
     }
 }
 </script>

@@ -6,12 +6,11 @@
             <tr>
                 <td align="center" width="2%">상품명</td>
                 <td align="center" width="2%">상품가격</td>
-                <td align="center" width="2%">제조사</td>
                 <td align="center" width="2%">상품 이미지</td>
             </tr>
             <p></p>
             <tr v-if="!products || (Array.isArray(products) && products.length === 0)">
-                <td colspan="5">
+                <td colspan="3">
                     현재 등록된 상품이 없습니다!
                 </td>
             </tr>
@@ -20,17 +19,20 @@
                     <router-link :to="{
                         name: 'ProductReadPage',
                         params: { productId: product.productId.toString() }}">
-                        {{ product.name }}
+                        {{ product.productName }}
                     </router-link>
                 </td>
                 <td>
-                    {{ product.price }}
+                    {{ product.productPrice }}
                 </td>
                 <td>
-                    {{ product.company }}
-                </td>
-                <td>
-                    {{ product.Image }}
+                    <v-img :src="require(`@/assets/uploadImgs/${product.productImageList[0]}`)" aspect-ratio="1" class="grey lighten-2">
+                        <template v-slot:placeholder>
+                            <v-row class="fill-height ma-0" align="center" justify="center">
+                                <v-progress-circular indeterminate color="grey lighten-5"/>
+                            </v-row>
+                        </template>
+                    </v-img>
                 </td>
             </tr>
         </table>
