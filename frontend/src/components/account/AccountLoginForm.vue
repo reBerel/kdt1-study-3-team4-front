@@ -1,25 +1,28 @@
 <template lang="">
     <v-container>
-      <form @submit.prevent="onSubmit">
-        <table>
-          <tr>
-            <td>이메일</td>
-            <td>
-              <input type="text" v-model="email"/>
-            </td>
-          </tr>
-          <tr>
-            <td>비밀번호</td>
-            <td>
-              <input type="text" v-model="password"/>
-            </td>
-          </tr>
-        </table>
-  
-        <div>
-          <button type="submit">로그인</button>
-        </div>
-      </form>
+        <v-card class="box" width="460">
+                        <v-card-text class="text-center px-12 py-16">
+                            <v-form @submit.prevent="onSubmit" ref="form">
+                                <div >
+                                    <v-text-field
+                                        v-model="email"
+                                        label="이메일"
+                                        required>
+                                    </v-text-field>
+                                    <v-text-field
+                                        v-model="password"
+                                        label="비밀번호"
+                                        required>
+                                    </v-text-field>
+                                </div>
+
+                                <v-btn type="submit" block x-large rounded
+                                        color="teal lighten-1" class="mt-5"
+                                        style="color:white"
+                                        >로그인</v-btn>
+                            </v-form>
+                        </v-card-text>
+                    </v-card>
     </v-container>
   </template>
   
@@ -51,6 +54,11 @@
   }
   </script>
   
-  <style lang="">
-      
+  <style scoped>
+.box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}        
   </style>
