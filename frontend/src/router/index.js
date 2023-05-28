@@ -3,12 +3,14 @@ import VueRouter from 'vue-router'
 import defaultSetRoutes from './defaultRouterSet'
 import productRoutes from './product'
 import accountRoutes from './account'
+import orderRoutes from './order'
 Vue.use(VueRouter)
 
 const routes = [
   ...defaultSetRoutes,
   ...productRoutes,
   ...accountRoutes,
+  ...orderRoutes,
 
 ]
 
