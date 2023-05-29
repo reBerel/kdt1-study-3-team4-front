@@ -31,16 +31,4 @@ export default {
         commit(REQUEST_PRODUCT_TO_SPRING, res.data)
       })
   },
-  requestOrderToSpring({ }, payload) {
-    console.log(payload)
-    const { productId, accountToken } = payload
-    return axiosInst.post('/orders/register', { productId, accountToken })
-      .then((res) => {
-        if (res.data) {
-          alert('구매 성공!')
-        } else {
-          alert('구매 실패')
-        }
-      })
-  },
 }

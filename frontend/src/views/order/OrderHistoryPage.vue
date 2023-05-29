@@ -2,7 +2,7 @@
     <div>
         <div style="text-align: left; margin: 20px;">
         </div>
-        <order-history-form :orders="orders"/>
+        <order-history-form :orders="orders" />
     </div>
 </template>
 
@@ -12,12 +12,12 @@ import OrderHistoryForm from '@/components/order/OrderHistoryForm.vue'
 const orderModule = 'orderModule'
 
 export default {
-    components: { OrderHistoryForm},
+    components: { OrderHistoryForm },
     computed: {
         ...mapState(orderModule, ['orders']),
     },
-    mounted () {
-        this.requestOrderHistoryToSpring(1)
+    mounted() {
+        this.requestOrderHistoryToSpring(2)
     },
     methods: {
         ...mapActions(
@@ -27,6 +27,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
