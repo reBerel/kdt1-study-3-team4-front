@@ -45,7 +45,7 @@
                       if (!this.userToken) {
                           alert('입력 정보가 잘못되었습니다!')
                       } else {
-                          localStorage.setItem("accountToken", this.userToken)
+                          localStorage.setItem("userToken", this.userToken)
                           alert('로그인 성공!')
                       }
                   })
