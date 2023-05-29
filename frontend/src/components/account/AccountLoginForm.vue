@@ -48,8 +48,6 @@ export default {
             localStorage.setItem("userToken", this.userToken)
             alert('로그인 성공!')
           }
-        })
-    }
   }
 }
 </script>
