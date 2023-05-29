@@ -26,34 +26,31 @@
     </v-container>
   </template>
   
-  <script>
-  import axiosInst from '@/utility/axiosInst'
-  export default {
-      data () {
-          return {
-              email: '',
-              password: '',
-              userToken: '',
+<script>
+import axiosInst from '@/utility/axiosInst'
+export default {
+  data() {
+    return {
+      email: '',
+      password: '',
+      userToken: '',
+    }
+  },
+  methods: {
+    onSubmit() {
+      const { email, password } = this
+      axiosInst.post('/account/login', { email, password })
+        .then((res) => {
+          this.userToken = res.data
+          if (!this.userToken) {
+            alert('입력 정보가 잘못되었습니다!')
+          } else {
+            localStorage.setItem("userToken", this.userToken)
+            alert('로그인 성공!')
           }
-      },
-      methods: {
-          onSubmit () {
-              const { email, password } = this
-              axiosInst.post('/account/login', { email, password })
-                  .then((res) => {
-                      this.userToken = res.data
-                      if (!this.userToken) {
-                          alert('입력 정보가 잘못되었습니다!')
-                      } else {
-                          localStorage.setItem("userToken", this.userToken)
-                          alert('로그인 성공!')
-                      }
-                  })
-          }
-      }
   }
-  </script>
-  
+}
+</script>
   <style scoped>
 .box{
   position: absolute;

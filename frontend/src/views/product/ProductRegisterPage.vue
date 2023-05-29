@@ -9,21 +9,21 @@
 import ProductRegisterForm from '@/components/product/productRegisterForm.vue'
 import { mapActions } from 'vuex';
 
-const productModule = 'productModule' 
+const productModule = 'productModule'
 
 export default {
     components: {
         ProductRegisterForm,
     },
-    name: "BoardRegisterPage",
+    name: "ProductRegisterPage",
     methods: {
-        ...mapActions( 
+        ...mapActions(
             productModule, ['requestRegisterProductToSpring']
         ),
-        async onSubmit (payload) {
+        async onSubmit(payload) {
             const product = await this.requestRegisterProductToSpring(payload)
             console.log('product: ' + JSON.stringify(product))
-            
+
             await this.$router.push({
                 name: 'ProductListPage',
             })

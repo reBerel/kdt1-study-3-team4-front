@@ -48,41 +48,41 @@
 <script>
 export default {
     name: "ProductRegisterForm",
-    data () {
+    data() {
         return {
-            productName:'1',
-            vendor:'1',
+            productName: '1',
+            vendor: '1',
             productPrice: 1,
-            productDetails:'1',
+            productDetails: '1',
             userToken: '1',
-            files:'',
+            files: '',
         }
     },
     methods: {
-        handleFileUpload(){
+        handleFileUpload() {
             console.log(this.files)
 
-            this.files=this.$refs.files.files
+            this.files = this.$refs.files.files
             console.log(this.files)
         },
-        onSubmit () {
+        onSubmit() {
             let formData = new FormData()
-            this.userToken=localStorage.getItem("userToken")
-            let productInfo={
+            this.userToken = localStorage.getItem("userToken")
+            let productInfo = {
                 productName: this.productName,
-                vendor:this.vendor,
+                vendor: this.vendor,
                 productPrice: this.productPrice,
-                productDetails:this.productDetails,
-                userToken:this.userToken 
+                productDetails: this.productDetails,
+                userToken: this.userToken
             }
-            for(let i =0; i<this.files.length; i++){
+            for (let i = 0; i < this.files.length; i++) {
                 formData.append('imageFile', this.files[i])
             }
-            formData.append('productInfo',new Blob([JSON.stringify(productInfo)],{type: "application/json"})
-            )              
+            formData.append('productInfo', new Blob([JSON.stringify(productInfo)], { type: "application/json" })
+            )
             this.$emit('submit', formData)
         },
-        
+
     }
 }
 </script>
@@ -97,6 +97,7 @@ input {
     font-size: 14px;
     font-weight: 300;
 }
+
 select {
     color: gray;
     width: 100%;
@@ -106,16 +107,20 @@ select {
     font-size: 14px;
     font-weight: 300;
 }
+
 table {
     margin-left: 30px;
 }
+
 tr {
     height: 50px;
 }
+
 td.productForm {
     width: 150px;
     font-weight: 400;
 }
+
 textarea {
     margin-top: 10px;
     color: gray;
@@ -127,10 +132,9 @@ textarea {
     resize: none;
     border-radius: 8px;
 }
+
 div.submitRegister {
     margin-left: 280px;
     padding: 30px;
 }
-
-
 </style>
