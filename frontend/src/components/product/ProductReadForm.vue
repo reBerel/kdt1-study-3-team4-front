@@ -70,20 +70,15 @@ export default {
             productId: '',
         }
     },
-    async mounted() {
-        await this.setData()
-    },
     methods: {
         onSubmit() {
+            this.productId = this.product.productId
             const { productId } = this
             this.$emit('submit', { productId })
         },
         onModify() {
             const { productId } = this
             this.$router.push({ name: 'ProductModifyPage', params: { productId } })
-        },
-        setData() {
-            this.productId = this.product.productId
         },
     },
     computed: {
