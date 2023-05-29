@@ -48,14 +48,16 @@ export default {
             localStorage.setItem("userToken", this.userToken)
             alert('로그인 성공!')
           }
+        })
+    }
   }
 }
 </script>
-  <style scoped>
-.box{
+<style scoped>
+.box {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}        
-  </style>
+}
+</style>
