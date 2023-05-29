@@ -14,7 +14,7 @@ const orderRoutes = [
         component: OrderReadPage
       },
       {
-        path: '/order-history-page/1',
+        path: '/order-history-page/:userToken',
         name: 'OrderHistoryPage',
         component: OrderHistoryPage
       }

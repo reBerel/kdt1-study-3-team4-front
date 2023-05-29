@@ -17,7 +17,7 @@ export default {
         ...mapState(orderModule, ['orders']),
     },
     mounted() {
-        this.requestOrderHistoryToSpring(2)
+        this.requestOrderHistoryToSpring(this.$router.currentRoute.params.userToken);
     },
     methods: {
         ...mapActions(

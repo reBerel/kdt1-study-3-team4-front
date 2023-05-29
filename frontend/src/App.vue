@@ -12,11 +12,11 @@
           </span>
         </a>
       </div>
-      <a class="listLink" href="/order-history-page/1">
+      <router-link class="listLink" :to="orderHistoryPage">
           <abbr title="내 정보">            
           <v-icon>mdi-account-box</v-icon>
         </abbr>  
-      </a>
+      </router-link>
         <v-row justify="end">
           <v-col cols="auto">
             
@@ -42,13 +42,18 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+const MemberModule = 'MemberModule'
 
 export default {
   name: 'App',
 
-  data: () => ({
-    //
-  }),
+  computed: {
+      ...mapState(MemberModule, ['member']),
+      orderHistoryPage() {
+        return '/order-history-page/' + (this.member ? this.member.userToken : '');
+      }
+    },
 };
 </script>
 <style scoped>

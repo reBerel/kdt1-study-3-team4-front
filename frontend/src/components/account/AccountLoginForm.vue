@@ -28,6 +28,10 @@
   
 <script>
 import axiosInst from '@/utility/axiosInst'
+import { mapActions } from 'vuex';
+const MemberModule = 'MemberModule'
+
+
 export default {
   data() {
     return {
@@ -46,10 +50,15 @@ export default {
             alert('입력 정보가 잘못되었습니다!')
           } else {
             localStorage.setItem("userToken", this.userToken)
+            this.setUserToken(this.userToken)
             alert('로그인 성공!')
           }
         })
-    }
+        
+    },
+    ...mapActions(
+      MemberModule, ['setUserToken']
+    )
   }
 }
 </script>
