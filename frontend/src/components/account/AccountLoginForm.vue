@@ -34,6 +34,7 @@ export default {
       email: '',
       password: '',
       userToken: '',
+      role: '',
     }
   },
   methods: {
@@ -41,12 +42,17 @@ export default {
       const { email, password } = this
       axiosInst.post('/account/login', { email, password })
         .then((res) => {
-          this.userToken = res.data
+          this.userToken = res.data.userToken
+          this.role = res.data.roleType
           if (!this.userToken) {
             alert('입력 정보가 잘못되었습니다!')
           } else {
             localStorage.setItem("userToken", this.userToken)
+            localStorage.setItem("role", this.role)
             alert('로그인 성공!')
+            this.$router.push({
+              name: 'ProductListPage',
+            })
           }
         })
     }
