@@ -51,7 +51,7 @@
         <br>
         <div>
             <button v-if="!isBusiness" type="submit">상품 구매</button>
-            <button class="modifyButton" v-else @click="onModify"> 게시물 수정 </button>
+            <button class="modifyButton" type="button" v-else @click="onModify"> 게시물 수정 </button>
         </div>
     </form>
 </template>
@@ -70,20 +70,16 @@ export default {
             productId: '',
         }
     },
-    async mounted() {
-        await this.setData()
-    },
     methods: {
         onSubmit() {
+            this.productId = this.product.productId
             const { productId } = this
             this.$emit('submit', { productId })
         },
-        onModify() {
-            const { productId } = this
-            this.$router.push({ name: 'ProductModifyPage', params: { productId } })
-        },
-        setData() {
+        async onModify() {
             this.productId = this.product.productId
+            const { productId } = this
+            await this.$router.push({ name: 'ProductModifyPage', params: { productId: this.product.productId.toString() } })
         },
     },
     computed: {
