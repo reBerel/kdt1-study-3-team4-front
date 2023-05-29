@@ -9,7 +9,7 @@
         </div>
         <p></p>
         <div style="text-align: center;">
-            <router-link :to="{ name: 'OrderHistoryPage' }">
+            <router-link :to="orderHistoryPage">
                 <v-btn color="gray" dark style="margin: 0px 5px 0px 0px;">뒤로가기</v-btn>
             </router-link>
             <v-btn color="red" dark @click="onDelete">주문취소</v-btn>
@@ -34,7 +34,10 @@ export default {
     //     },
     // },
     computed: {
-        ...mapState(orderModule, ['order'])
+        ...mapState(orderModule, ['order']),
+        orderHistoryPage() {
+        return '/order-history-page/' + (localStorage.getItem("userToken"))
+      },
     },
     methods: {
         ...mapActions(
@@ -42,13 +45,15 @@ export default {
         ),
         async onDelete () {
             await this.requestDeleteOrderSpring(this.$router.currentRoute.params.orderId)
-            await this.$router.push({ name: 'OrderHistoryPage' })
+            await this.$router.push('/order-history-page/'+(localStorage.getItem("userToken")))
         }
     },
     created () {
         this.requestOrderToSpring(this.$router.currentRoute.params.orderId)
+        
+    },
     }
-}
+
 </script>
 
 <style>
