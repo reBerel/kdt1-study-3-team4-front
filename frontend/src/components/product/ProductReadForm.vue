@@ -5,7 +5,7 @@
                 <td>상품 이미지</td>
                 <td>
                     <v-row align="center">
-                        <v-col v-for="(imagePath, idx) in productImagesPathList" :key="idx" cols="10">
+                        <v-col v-for="(imagePath, idx) in product.productImagesPathList" :key="idx" cols="10">
                             <!-- <v-img
                                 :src="require(`D:/Github/kdt1-study-3-team4-back/demo/src/main/java/com/example/demo/UploadImgs/${imagePath}`)" -->
                             <v-img
@@ -68,7 +68,6 @@ export default {
     data() {
         return {
             productId: '',
-            productImagesPathList: null,
         }
     },
     async mounted() {
@@ -84,8 +83,7 @@ export default {
             this.$router.push({ name: 'ProductModifyPage', params: { productId } })
         },
         setData() {
-            this.productId = this.product.id
-            this.productImagesPathList = this.product.productImagesPathList
+            this.productId = this.product.productId
         },
     },
     computed: {

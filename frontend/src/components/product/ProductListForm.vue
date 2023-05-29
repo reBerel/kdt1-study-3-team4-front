@@ -16,7 +16,7 @@
             </tr>
             <tr v-else v-for="product in products" :key="product.productId">
                 <td>
-                    <v-img :src="require(`@/assets/uploadImgs/${product.productImageList[0]}`)" aspect-ratio="1" class="grey lighten-2">
+                    <v-img :src="require(`@/../../../kdt1-study-3-team4-back/demo/src/main/java/com/example/demo/UploadImgs/${product.productImagesPathList[0]}`)" aspect-ratio="1" class="grey lighten-2">
                         <template v-slot:placeholder>
                             <v-row class="fill-height ma-0" align="center" justify="center">
                                 <v-progress-circular indeterminate color="grey lighten-5"/>
@@ -50,7 +50,6 @@ export default {
 }
 </script>
 <style scoped>
-
 h3 {
     font-size: 40px;
 }
@@ -59,5 +58,4 @@ table {
 
     font-size: 20px;
 }
-
 </style>

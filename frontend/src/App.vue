@@ -7,8 +7,8 @@
     >
       <div class="d-flex align-center">
         <a href="/">
-        <span style="font-size: 20px; color: white;">
-          ho<v-icon>mdi-home</v-icon>me
+          <span style="font-size: 20px; color: white;">
+            ho<v-icon>mdi-home</v-icon>me
           </span>
         </a>
       </div>
@@ -16,7 +16,7 @@
           <abbr title="내 정보">            
           <v-icon>mdi-account-box</v-icon>
         </abbr>  
-        </a>
+      </a>
         <v-row justify="end">
           <v-col cols="auto">
             
@@ -36,7 +36,7 @@
   </v-row>
     </v-app-bar>
     <v-main>
-      <router-view/>
+      <router-view />
     </v-main>
   </v-app>
 </template>
@@ -59,14 +59,16 @@ export default {
   text-decoration: none;
   right: 0;
 }
-abbr{
+
+abbr {
   position: relative;
 }
+
 abbr[title]:hover::after {
   content: ' (' attr(title) ') ';
-    position: absolute;
-    left: 110%;
-    width: 500px;
-    text-decoration: none;
+  position: absolute;
+  left: 110%;
+  width: 500px;
+  text-decoration: none;
 }
 </style>

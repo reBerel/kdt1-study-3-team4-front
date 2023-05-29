@@ -15,6 +15,7 @@ import ProductReadForm from '@/components/product/ProductReadForm.vue'
 import { mapActions, mapState } from 'vuex';
 
 const productModule = 'productModule'
+const orderModule = 'orderModule'
 export default {
     components: {
         ProductReadForm
@@ -30,12 +31,15 @@ export default {
     },
     methods: {
         ...mapActions(
-            productModule, ['requestProductToSpring', 'requestOrderToSpring']
+            productModule, ['requestProductToSpring']
+        ),
+        ...mapActions(
+            orderModule, ['requestRegistOrderToSpring']
         ),
         onSubmit(payload) {
             const { productId } = payload
             // localStorage.setItem("accountToken", 1) 테스트용 임시 데이터
-            this.requestOrderToSpring({ productId, accountToken: localStorage.getItem("accountToken") })
+            this.requestRegistOrderToSpring({ productId, userToken: localStorage.getItem("userToken") })
         }
     },
     async created() {
