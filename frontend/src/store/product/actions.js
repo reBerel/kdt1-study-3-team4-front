@@ -31,4 +31,15 @@ export default {
         commit(REQUEST_PRODUCT_TO_SPRING, res.data)
       })
   },
+  requestProductModifyToSpring({ }, { payload, productId }) {
+
+
+    return axiosInst.put(`/product/modify/${productId}`, payload)
+      .then((res) => {
+        alert("수정 성공!")
+      })
+      .catch(() => {
+        alert('문제 발생!')
+      })
+  },
 }
