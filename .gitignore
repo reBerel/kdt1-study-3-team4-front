@@ -24,3 +24,5 @@ pnpm-debug.log*
 *.sw?
 .env.development
 .env.production
+docker-compose.yml
+dev.conf
