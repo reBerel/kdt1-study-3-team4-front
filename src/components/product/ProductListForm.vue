@@ -4,18 +4,18 @@
         <p></p>
         <table>
             <tr>
-                <!-- <td align="center" width="2%">상품 이미지</td> -->
+                <td align="center" width="2%">상품 이미지</td>
                 <td align="center" width="2%">상품명</td>
                 <td align="center" width="2%">상품가격</td>
             </tr>
             <p></p>
             <tr v-if="!products || (Array.isArray(products) && products.length === 0)">
-                <td colspan="2">
+                <td colspan="3">
                     현재 등록된 상품이 없습니다!
                 </td>
             </tr>
             <tr v-else v-for="product in products" :key="product.productId">
-                <!-- <td>
+                <td>
                     <v-img :src="require(`@/../../../kdt1-study-3-team4-back/demo/src/main/java/com/example/demo/UploadImgs/${product.productImagesPathList[0]}`)" aspect-ratio="1" class="grey lighten-2">
                         <template v-slot:placeholder>
                             <v-row class="fill-height ma-0" align="center" justify="center">
@@ -23,7 +23,7 @@
                             </v-row>
                         </template>
                     </v-img>
-                </td> -->
+                </td>
                 <td>
                     <router-link :to="{
                         name: 'ProductReadPage',

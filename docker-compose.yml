@@ -5,7 +5,7 @@ services:
     container_name: study3_team4
     restart: unless-stopped
     volumes:
-      - /home/ec2-user/actions-runner/frontend/conf:/etc/nginx/conf.d
-      - /home/ec2-user/actions-runner/frontend/html:/usr/share/nginx/html
+      - /home/ec2-user/study3_team4/kdt1-study-3-team4-front/frontend/conf:/etc/nginx/conf.d
+      - /home/ec2-user/study3_team4/kdt1-study-3-team4-front/frontend/html:/usr/share/nginx/html
     ports:
       - "80:80"
