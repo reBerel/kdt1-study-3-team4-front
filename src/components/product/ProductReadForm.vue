@@ -1,13 +1,13 @@
 <template>
     <form @submit.prevent="onSubmit">
         <table>
-            <tr>
+            <!-- <tr>
                 <td>상품 이미지</td>
                 <td>
                     <v-row align="center">
                         <v-col v-for="(imagePath, idx) in product.productImagesPathList" :key="idx" cols="10">
-                            <!-- <v-img
-                                :src="require(`D:/Github/kdt1-study-3-team4-back/demo/src/main/java/com/example/demo/UploadImgs/${imagePath}`)" -->
+                            <v-img
+                                :src="require(`D:/Github/kdt1-study-3-team4-back/demo/src/main/java/com/example/demo/UploadImgs/${imagePath}`)"
                             <v-img
                                 :src="require(`@/../../../kdt1-study-3-team4-back/demo/src/main/java/com/example/demo/UploadImgs/${imagePath}`)"
                                 aspect-ratio="1" class="grey lighten-2">
@@ -20,7 +20,7 @@
                         </v-col>
                     </v-row>
                 </td>
-            </tr>
+            </tr> -->
             <tr>
                 <td>상품명</td>
                 <td>

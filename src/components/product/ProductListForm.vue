@@ -15,7 +15,7 @@
                 </td>
             </tr>
             <tr v-else v-for="product in products" :key="product.productId">
-                <td>
+                <!-- <td>
                     <v-img :src="require(`@/../../../kdt1-study-3-team4-back/demo/src/main/java/com/example/demo/UploadImgs/${product.productImagesPathList[0]}`)" aspect-ratio="1" class="grey lighten-2">
                         <template v-slot:placeholder>
                             <v-row class="fill-height ma-0" align="center" justify="center">
@@ -23,7 +23,7 @@
                             </v-row>
                         </template>
                     </v-img>
-                </td>
+                </td> -->
                 <td>
                     <router-link :to="{
                         name: 'ProductReadPage',
