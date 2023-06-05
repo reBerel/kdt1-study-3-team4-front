@@ -62,7 +62,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
-          username: reberel
+          username: ${{ github.actor }}
           password: ${{ secrets.GHCR_TOKEN }}
 
       - name: Deploy to prod
@@ -78,7 +78,7 @@ jobs:
             cd ${{ secrets.ACTIONS }}
             pwd
            
-            echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u reberel --password-stdin
+            echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
            
             docker pull ghcr.io/reberel/kdt1-study-3-team4-front:latest
            
