@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   frontend:
-    image: ghcr.io/bbbii/frontend-server:latest
+    image: ghcr.io/reberel/kdt1-study-3-team4-front:latest
     container_name: docker-frontend-deploy-server
     ports:
       - "80:80"
